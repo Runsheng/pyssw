@@ -55,7 +55,7 @@ class Aligner(object):
 
     # Load the ssw library using ctypes
     path = os.path.dirname(os.path.realpath(__file__))
-    libssw = cdll.LoadLibrary("%s/libssw.so" % path)
+    libssw = cdll.LoadLibrary("%s/ssw*.so" % path)
 
     # Init and setup the functions pointer to map the one specified in the SSW lib
     # ssw_init method

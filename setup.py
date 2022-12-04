@@ -20,7 +20,7 @@ from pyssw import __version__
 
 
 # read the description from the readme file
-with open('README.md', "r") as f:
+with open('readme.md', "r") as f:
     LONG_DESC = f.read()
 
 
@@ -99,7 +99,7 @@ class CustomSdist(sdist.sdist):
         pClean()
         PYSSW_BUILT = False
         # Remove the build lib
-        os.remove(os.path.join(MODULE_PATH, 'libssw.so'))
+        #os.remove(os.path.join(MODULE_PATH, 'libssw.so'))
         super().run()
 
 
@@ -113,7 +113,7 @@ setup(
     name='pyssw',
     version=__version__,
     packages=['pyssw'],
-    url='github.com/runsheng/pyssw',
+    url='https://github.com/runsheng/pyssw',
     license='MIT',
     author='Runsheng',
     author_email='runsheng.lee@gmail.com',
