@@ -18,6 +18,19 @@ other packages.
 from ctypes import *
 import re
 import os
+import fnmatch
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+def myglob(seqdir, word):
+    """
+     to write a glob for python2 for res-glob
+    """
+    matches=[]
+    for root, dirnames, filenames in os.walk(seqdir):
+        for filename in fnmatch.filter(filenames, word):
+            matches.append(os.path.join(root, filename))
+    return matches
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 class CAlignRes(Structure):
@@ -55,7 +68,8 @@ class Aligner(object):
 
     # Load the ssw library using ctypes
     path = os.path.dirname(os.path.realpath(__file__))
-    libssw = cdll.LoadLibrary("%s/ssw*.so" % path)
+    lib_file=myglob(path, "ssw*.so")
+    libssw = cdll.LoadLibrary(lib_file)
 
     # Init and setup the functions pointer to map the one specified in the SSW lib
     # ssw_init method
