@@ -289,7 +289,8 @@ class PyAlignRes(object):
 
     # Load the ssw library using ctypes
     path = os.path.dirname(os.path.realpath(__file__))
-    libssw = cdll.LoadLibrary("%s/libssw.so" % path)
+    lib_file=myglob(path, "ssw*.so")
+    libssw = cdll.LoadLibrary(lib_file[0])
 
     # Init and setup the functions pointer to map the one specified in the SSW lib
     # cigar_int_to_len function
