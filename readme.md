@@ -25,5 +25,6 @@ from [PyPi](https://pypi.org/project/pyssw/)
 
 or from source
     
-    git clone 
-    pip install 
+    git clone  https://github.com/Runsheng/pyssw.git
+    cd pyssw
+    pip install . 

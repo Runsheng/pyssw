@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-__version__="0.1.5"
+__version__="0.1.6"
 
 """
 * The python wrapper 'ssw_wrapp" allow to perform high performance pairwise DNA alignment and return a simple python object describing the alignement.
