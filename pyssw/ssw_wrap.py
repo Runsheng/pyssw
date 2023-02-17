@@ -212,7 +212,7 @@ class Aligner(object):
         # if < 15, the function will NOT return the suboptimal alignment information
 
         if query_len > 30:
-            mask_len = query_len/2
+            mask_len = query_len//2
         else:
             mask_len = 15
 
